@@ -6,7 +6,6 @@ import me.myproj.webrisetest.repos.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,10 +39,7 @@ public class SubscriptionService {
           dto.setServiceName((String) result[0]);
           return dto;
         })
-        .limit(3)
-        .sorted(Comparator.comparing(
-            SubscriptionDTO::getServiceName)
-        ).toList();
+        .limit(3).toList();
   }
 
   private SubscriptionDTO convertToDTO(Subscription subscription) {
